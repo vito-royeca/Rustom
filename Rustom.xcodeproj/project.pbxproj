@@ -32,6 +32,10 @@
 		8B72E2E628A1F01B0072D89A /* GoogleSignInAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E428A1F01B0072D89A /* GoogleSignInAuthenticator.swift */; };
 		8B72E2EA28A1F6600072D89A /* DriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E928A1F6600072D89A /* DriveView.swift */; };
 		8B72E2EB28A1F6600072D89A /* DriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E928A1F6600072D89A /* DriveView.swift */; };
+		8B72E2EF28A1F9210072D89A /* DriveLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2EE28A1F9210072D89A /* DriveLoader.swift */; };
+		8B72E2F028A1F9210072D89A /* DriveLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2EE28A1F9210072D89A /* DriveLoader.swift */; };
+		8B72E2F228A20DCF0072D89A /* DriveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2F128A20DCF0072D89A /* DriveViewModel.swift */; };
+		8B72E2F328A20DCF0072D89A /* DriveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2F128A20DCF0072D89A /* DriveViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,10 @@
 		8B72E2E728A1F5990072D89A /* Rustom--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Rustom--iOS--Info.plist"; sourceTree = "<group>"; };
 		8B72E2E828A1F6030072D89A /* Rustom--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Rustom--macOS--Info.plist"; sourceTree = "<group>"; };
 		8B72E2E928A1F6600072D89A /* DriveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveView.swift; sourceTree = "<group>"; };
+		8B72E2EC28A1F7C90072D89A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8B72E2ED28A1F7C90072D89A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8B72E2EE28A1F9210072D89A /* DriveLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveLoader.swift; sourceTree = "<group>"; };
+		8B72E2F128A20DCF0072D89A /* DriveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,8 @@
 		8B72E28628A1D0AF0072D89A = {
 			isa = PBXGroup;
 			children = (
+				8B72E2ED28A1F7C90072D89A /* LICENSE */,
+				8B72E2EC28A1F7C90072D89A /* README.md */,
 				8B72E2E828A1F6030072D89A /* Rustom--macOS--Info.plist */,
 				8B72E2E728A1F5990072D89A /* Rustom--iOS--Info.plist */,
 				8B72E28B28A1D0B00072D89A /* Shared */,
@@ -179,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				8B72E2E028A1E85A0072D89A /* AuthenticationViewModel.swift */,
+				8B72E2F128A20DCF0072D89A /* DriveViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -187,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				8B72E2E428A1F01B0072D89A /* GoogleSignInAuthenticator.swift */,
+				8B72E2EE28A1F9210072D89A /* DriveLoader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -368,6 +380,8 @@
 				8B72E2B628A1D0C90072D89A /* ContentView.swift in Sources */,
 				8B72E2EA28A1F6600072D89A /* DriveView.swift in Sources */,
 				8B72E2E528A1F01B0072D89A /* GoogleSignInAuthenticator.swift in Sources */,
+				8B72E2F228A20DCF0072D89A /* DriveViewModel.swift in Sources */,
+				8B72E2EF28A1F9210072D89A /* DriveLoader.swift in Sources */,
 				8B72E2B428A1D0C90072D89A /* RustomApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +395,8 @@
 				8B72E2B728A1D0C90072D89A /* ContentView.swift in Sources */,
 				8B72E2EB28A1F6600072D89A /* DriveView.swift in Sources */,
 				8B72E2E628A1F01B0072D89A /* GoogleSignInAuthenticator.swift in Sources */,
+				8B72E2F328A20DCF0072D89A /* DriveViewModel.swift in Sources */,
+				8B72E2F028A1F9210072D89A /* DriveLoader.swift in Sources */,
 				8B72E2B528A1D0C90072D89A /* RustomApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

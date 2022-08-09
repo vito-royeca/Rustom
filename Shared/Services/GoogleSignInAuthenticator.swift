@@ -88,23 +88,22 @@ final class GoogleSignInAuthenticator: ObservableObject {
             self.signOut()
         }
     }
-/*
-    // Confines birthday calucation to iOS for now.
-    /// Adds the birthday read scope for the current user.
+
+    /// Adds the Google Drive read scope for the current user.
     /// - parameter completion: An escaping closure that is called upon successful completion of the
     /// `addScopes(_:presenting:)` request.
     /// - note: Successful requests will update the `authViewModel.state` with a new current user that
     /// has the granted scope.
-    func addBirthdayReadScope(completion: @escaping () -> Void) {
+    func addDriveScopes(completion: @escaping () -> Void) {
     #if os(iOS)
         guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
             fatalError("No root view controller!")
         }
 
-        GIDSignIn.sharedInstance.addScopes([BirthdayLoader.birthdayReadScope],
+        GIDSignIn.sharedInstance.addScopes([DriveLoader.driveReadScope, DriveLoader.driveActivityReadScope],
                                            presenting: rootViewController) { user, error in
             if let error = error {
-                print("Found error while adding birthday read scope: \(error).")
+                print("Found error while adding Google Drive read scopes: \(error).")
                 return
             }
 
@@ -118,10 +117,10 @@ final class GoogleSignInAuthenticator: ObservableObject {
             fatalError("No presenting window!")
         }
 
-        GIDSignIn.sharedInstance.addScopes([BirthdayLoader.birthdayReadScope],
+        GIDSignIn.sharedInstance.addScopes([DriveLoader.driveReadScope, DriveLoader.driveActivityReadScope],
                                            presenting: presentingWindow) { user, error in
             if let error = error {
-                print("Found error while adding birthday read scope: \(error).")
+                print("Found error while adding Google Drive read scopes: \(error).")
                 return
             }
 
@@ -132,6 +131,5 @@ final class GoogleSignInAuthenticator: ObservableObject {
 
     #endif
     }
-*/
 }
 

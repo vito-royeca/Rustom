@@ -59,17 +59,17 @@ final class AuthenticationViewModel: ObservableObject {
     func disconnect() {
         authenticator.disconnect()
     }
-/*
-    var hasBirthdayReadScope: Bool {
-        return authorizedScopes.contains(BirthdayLoader.birthdayReadScope)
+
+    var hasDriveScopes: Bool {
+        return authorizedScopes.contains(DriveLoader.driveReadScope) &&
+            authorizedScopes.contains(DriveLoader.driveActivityReadScope)
     }
 
-    /// Adds the requested birthday read scope.
+    /// Adds the requested Google Drive read scopes.
     /// - parameter completion: An escaping closure that is called upon successful completion.
-    func addBirthdayReadScope(completion: @escaping () -> Void) {
-        authenticator.addBirthdayReadScope(completion: completion)
+    func addDriveScopes(completion: @escaping () -> Void) {
+        authenticator.addDriveScopes(completion: completion)
     }
-*/
 }
 
 extension AuthenticationViewModel {
