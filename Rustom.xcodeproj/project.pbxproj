@@ -1,0 +1,837 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B72E2A528A1D0C90072D89A /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2A428A1D0C90072D89A /* Tests_iOS.swift */; };
+		8B72E2A728A1D0C90072D89A /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2A628A1D0C90072D89A /* Tests_iOSLaunchTests.swift */; };
+		8B72E2B128A1D0C90072D89A /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2B028A1D0C90072D89A /* Tests_macOS.swift */; };
+		8B72E2B328A1D0C90072D89A /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2B228A1D0C90072D89A /* Tests_macOSLaunchTests.swift */; };
+		8B72E2B428A1D0C90072D89A /* RustomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E28C28A1D0B00072D89A /* RustomApp.swift */; };
+		8B72E2B528A1D0C90072D89A /* RustomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E28C28A1D0B00072D89A /* RustomApp.swift */; };
+		8B72E2B628A1D0C90072D89A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E28D28A1D0B00072D89A /* ContentView.swift */; };
+		8B72E2B728A1D0C90072D89A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E28D28A1D0B00072D89A /* ContentView.swift */; };
+		8B72E2B828A1D0C90072D89A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B72E28E28A1D0C90072D89A /* Assets.xcassets */; };
+		8B72E2B928A1D0C90072D89A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B72E28E28A1D0C90072D89A /* Assets.xcassets */; };
+		8B72E2CA28A1DB450072D89A /* GoogleAPIClientForRESTCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2C928A1DB450072D89A /* GoogleAPIClientForRESTCore */; };
+		8B72E2CC28A1DB450072D89A /* GoogleAPIClientForREST_Drive in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2CB28A1DB450072D89A /* GoogleAPIClientForREST_Drive */; };
+		8B72E2CE28A1DB450072D89A /* GoogleAPIClientForREST_DriveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2CD28A1DB450072D89A /* GoogleAPIClientForREST_DriveActivity */; };
+		8B72E2D028A1DB450072D89A /* GoogleAPIClientForREST_Oauth2 in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2CF28A1DB450072D89A /* GoogleAPIClientForREST_Oauth2 */; };
+		8B72E2D328A1DEE50072D89A /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2D228A1DEE50072D89A /* GoogleSignInSwift */; };
+		8B72E2D528A1E1E00072D89A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2D428A1E1E00072D89A /* SignInView.swift */; };
+		8B72E2D628A1E1E00072D89A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2D428A1E1E00072D89A /* SignInView.swift */; };
+		8B72E2DC28A1E7740072D89A /* GTMSessionFetcher in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2DB28A1E7740072D89A /* GTMSessionFetcher */; };
+		8B72E2DE28A1E7740072D89A /* GTMSessionFetcherCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2DD28A1E7740072D89A /* GTMSessionFetcherCore */; };
+		8B72E2E128A1E85A0072D89A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E028A1E85A0072D89A /* AuthenticationViewModel.swift */; };
+		8B72E2E228A1E85A0072D89A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E028A1E85A0072D89A /* AuthenticationViewModel.swift */; };
+		8B72E2E528A1F01B0072D89A /* GoogleSignInAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E428A1F01B0072D89A /* GoogleSignInAuthenticator.swift */; };
+		8B72E2E628A1F01B0072D89A /* GoogleSignInAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E428A1F01B0072D89A /* GoogleSignInAuthenticator.swift */; };
+		8B72E2EA28A1F6600072D89A /* DriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E928A1F6600072D89A /* DriveView.swift */; };
+		8B72E2EB28A1F6600072D89A /* DriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E928A1F6600072D89A /* DriveView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B72E2A128A1D0C90072D89A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B72E28728A1D0AF0072D89A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B72E29228A1D0C90072D89A;
+			remoteInfo = "Rustom (iOS)";
+		};
+		8B72E2AD28A1D0C90072D89A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B72E28728A1D0AF0072D89A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B72E29828A1D0C90072D89A;
+			remoteInfo = "Rustom (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8B72E28C28A1D0B00072D89A /* RustomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustomApp.swift; sourceTree = "<group>"; };
+		8B72E28D28A1D0B00072D89A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8B72E28E28A1D0C90072D89A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B72E29328A1D0C90072D89A /* Rustom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rustom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B72E29928A1D0C90072D89A /* Rustom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rustom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B72E29B28A1D0C90072D89A /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		8B72E2A028A1D0C90072D89A /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B72E2A428A1D0C90072D89A /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		8B72E2A628A1D0C90072D89A /* Tests_iOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOSLaunchTests.swift; sourceTree = "<group>"; };
+		8B72E2AC28A1D0C90072D89A /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B72E2B028A1D0C90072D89A /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
+		8B72E2B228A1D0C90072D89A /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		8B72E2D428A1E1E00072D89A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		8B72E2E028A1E85A0072D89A /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		8B72E2E428A1F01B0072D89A /* GoogleSignInAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignInAuthenticator.swift; sourceTree = "<group>"; };
+		8B72E2E728A1F5990072D89A /* Rustom--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Rustom--iOS--Info.plist"; sourceTree = "<group>"; };
+		8B72E2E828A1F6030072D89A /* Rustom--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Rustom--macOS--Info.plist"; sourceTree = "<group>"; };
+		8B72E2E928A1F6600072D89A /* DriveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B72E29028A1D0C90072D89A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B72E2DE28A1E7740072D89A /* GTMSessionFetcherCore in Frameworks */,
+				8B72E2DC28A1E7740072D89A /* GTMSessionFetcher in Frameworks */,
+				8B72E2D328A1DEE50072D89A /* GoogleSignInSwift in Frameworks */,
+				8B72E2CC28A1DB450072D89A /* GoogleAPIClientForREST_Drive in Frameworks */,
+				8B72E2CE28A1DB450072D89A /* GoogleAPIClientForREST_DriveActivity in Frameworks */,
+				8B72E2D028A1DB450072D89A /* GoogleAPIClientForREST_Oauth2 in Frameworks */,
+				8B72E2CA28A1DB450072D89A /* GoogleAPIClientForRESTCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B72E29628A1D0C90072D89A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B72E29D28A1D0C90072D89A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B72E2A928A1D0C90072D89A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B72E28628A1D0AF0072D89A = {
+			isa = PBXGroup;
+			children = (
+				8B72E2E828A1F6030072D89A /* Rustom--macOS--Info.plist */,
+				8B72E2E728A1F5990072D89A /* Rustom--iOS--Info.plist */,
+				8B72E28B28A1D0B00072D89A /* Shared */,
+				8B72E29A28A1D0C90072D89A /* macOS */,
+				8B72E2A328A1D0C90072D89A /* Tests iOS */,
+				8B72E2AF28A1D0C90072D89A /* Tests macOS */,
+				8B72E29428A1D0C90072D89A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8B72E28B28A1D0B00072D89A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8B72E2E328A1EFE90072D89A /* Services */,
+				8B72E2DF28A1E8370072D89A /* ViewModels */,
+				8B72E28C28A1D0B00072D89A /* RustomApp.swift */,
+				8B72E28D28A1D0B00072D89A /* ContentView.swift */,
+				8B72E28E28A1D0C90072D89A /* Assets.xcassets */,
+				8B72E2D428A1E1E00072D89A /* SignInView.swift */,
+				8B72E2E928A1F6600072D89A /* DriveView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8B72E29428A1D0C90072D89A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B72E29328A1D0C90072D89A /* Rustom.app */,
+				8B72E29928A1D0C90072D89A /* Rustom.app */,
+				8B72E2A028A1D0C90072D89A /* Tests iOS.xctest */,
+				8B72E2AC28A1D0C90072D89A /* Tests macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B72E29A28A1D0C90072D89A /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				8B72E29B28A1D0C90072D89A /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		8B72E2A328A1D0C90072D89A /* Tests iOS */ = {
+			isa = PBXGroup;
+			children = (
+				8B72E2A428A1D0C90072D89A /* Tests_iOS.swift */,
+				8B72E2A628A1D0C90072D89A /* Tests_iOSLaunchTests.swift */,
+			);
+			path = "Tests iOS";
+			sourceTree = "<group>";
+		};
+		8B72E2AF28A1D0C90072D89A /* Tests macOS */ = {
+			isa = PBXGroup;
+			children = (
+				8B72E2B028A1D0C90072D89A /* Tests_macOS.swift */,
+				8B72E2B228A1D0C90072D89A /* Tests_macOSLaunchTests.swift */,
+			);
+			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		8B72E2DF28A1E8370072D89A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8B72E2E028A1E85A0072D89A /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8B72E2E328A1EFE90072D89A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8B72E2E428A1F01B0072D89A /* GoogleSignInAuthenticator.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B72E29228A1D0C90072D89A /* Rustom (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B72E2BC28A1D0C90072D89A /* Build configuration list for PBXNativeTarget "Rustom (iOS)" */;
+			buildPhases = (
+				8B72E28F28A1D0C90072D89A /* Sources */,
+				8B72E29028A1D0C90072D89A /* Frameworks */,
+				8B72E29128A1D0C90072D89A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rustom (iOS)";
+			packageProductDependencies = (
+				8B72E2C928A1DB450072D89A /* GoogleAPIClientForRESTCore */,
+				8B72E2CB28A1DB450072D89A /* GoogleAPIClientForREST_Drive */,
+				8B72E2CD28A1DB450072D89A /* GoogleAPIClientForREST_DriveActivity */,
+				8B72E2CF28A1DB450072D89A /* GoogleAPIClientForREST_Oauth2 */,
+				8B72E2D228A1DEE50072D89A /* GoogleSignInSwift */,
+				8B72E2DB28A1E7740072D89A /* GTMSessionFetcher */,
+				8B72E2DD28A1E7740072D89A /* GTMSessionFetcherCore */,
+			);
+			productName = "Rustom (iOS)";
+			productReference = 8B72E29328A1D0C90072D89A /* Rustom.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B72E29828A1D0C90072D89A /* Rustom (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B72E2BF28A1D0C90072D89A /* Build configuration list for PBXNativeTarget "Rustom (macOS)" */;
+			buildPhases = (
+				8B72E29528A1D0C90072D89A /* Sources */,
+				8B72E29628A1D0C90072D89A /* Frameworks */,
+				8B72E29728A1D0C90072D89A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rustom (macOS)";
+			productName = "Rustom (macOS)";
+			productReference = 8B72E29928A1D0C90072D89A /* Rustom.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B72E29F28A1D0C90072D89A /* Tests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B72E2C228A1D0C90072D89A /* Build configuration list for PBXNativeTarget "Tests iOS" */;
+			buildPhases = (
+				8B72E29C28A1D0C90072D89A /* Sources */,
+				8B72E29D28A1D0C90072D89A /* Frameworks */,
+				8B72E29E28A1D0C90072D89A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B72E2A228A1D0C90072D89A /* PBXTargetDependency */,
+			);
+			name = "Tests iOS";
+			productName = "Tests iOS";
+			productReference = 8B72E2A028A1D0C90072D89A /* Tests iOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		8B72E2AB28A1D0C90072D89A /* Tests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B72E2C528A1D0C90072D89A /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildPhases = (
+				8B72E2A828A1D0C90072D89A /* Sources */,
+				8B72E2A928A1D0C90072D89A /* Frameworks */,
+				8B72E2AA28A1D0C90072D89A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B72E2AE28A1D0C90072D89A /* PBXTargetDependency */,
+			);
+			name = "Tests macOS";
+			productName = "Tests macOS";
+			productReference = 8B72E2AC28A1D0C90072D89A /* Tests macOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B72E28728A1D0AF0072D89A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					8B72E29228A1D0C90072D89A = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					8B72E29828A1D0C90072D89A = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					8B72E29F28A1D0C90072D89A = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 8B72E29228A1D0C90072D89A;
+					};
+					8B72E2AB28A1D0C90072D89A = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 8B72E29828A1D0C90072D89A;
+					};
+				};
+			};
+			buildConfigurationList = 8B72E28A28A1D0AF0072D89A /* Build configuration list for PBXProject "Rustom" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B72E28628A1D0AF0072D89A;
+			packageReferences = (
+				8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */,
+				8B72E2D128A1DEE50072D89A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				8B72E2DA28A1E7740072D89A /* XCRemoteSwiftPackageReference "gtm-session-fetcher" */,
+			);
+			productRefGroup = 8B72E29428A1D0C90072D89A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B72E29228A1D0C90072D89A /* Rustom (iOS) */,
+				8B72E29828A1D0C90072D89A /* Rustom (macOS) */,
+				8B72E29F28A1D0C90072D89A /* Tests iOS */,
+				8B72E2AB28A1D0C90072D89A /* Tests macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B72E29128A1D0C90072D89A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B72E2B828A1D0C90072D89A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B72E29728A1D0C90072D89A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B72E2B928A1D0C90072D89A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B72E29E28A1D0C90072D89A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B72E2AA28A1D0C90072D89A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B72E28F28A1D0C90072D89A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B72E2E128A1E85A0072D89A /* AuthenticationViewModel.swift in Sources */,
+				8B72E2D528A1E1E00072D89A /* SignInView.swift in Sources */,
+				8B72E2B628A1D0C90072D89A /* ContentView.swift in Sources */,
+				8B72E2EA28A1F6600072D89A /* DriveView.swift in Sources */,
+				8B72E2E528A1F01B0072D89A /* GoogleSignInAuthenticator.swift in Sources */,
+				8B72E2B428A1D0C90072D89A /* RustomApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B72E29528A1D0C90072D89A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B72E2E228A1E85A0072D89A /* AuthenticationViewModel.swift in Sources */,
+				8B72E2D628A1E1E00072D89A /* SignInView.swift in Sources */,
+				8B72E2B728A1D0C90072D89A /* ContentView.swift in Sources */,
+				8B72E2EB28A1F6600072D89A /* DriveView.swift in Sources */,
+				8B72E2E628A1F01B0072D89A /* GoogleSignInAuthenticator.swift in Sources */,
+				8B72E2B528A1D0C90072D89A /* RustomApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B72E29C28A1D0C90072D89A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B72E2A728A1D0C90072D89A /* Tests_iOSLaunchTests.swift in Sources */,
+				8B72E2A528A1D0C90072D89A /* Tests_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B72E2A828A1D0C90072D89A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B72E2B328A1D0C90072D89A /* Tests_macOSLaunchTests.swift in Sources */,
+				8B72E2B128A1D0C90072D89A /* Tests_macOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B72E2A228A1D0C90072D89A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B72E29228A1D0C90072D89A /* Rustom (iOS) */;
+			targetProxy = 8B72E2A128A1D0C90072D89A /* PBXContainerItemProxy */;
+		};
+		8B72E2AE28A1D0C90072D89A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B72E29828A1D0C90072D89A /* Rustom (macOS) */;
+			targetProxy = 8B72E2AD28A1D0C90072D89A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8B72E2BA28A1D0C90072D89A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8B72E2BB28A1D0C90072D89A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		8B72E2BD28A1D0C90072D89A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rustom--iOS--Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca.Rustom;
+				PRODUCT_NAME = Rustom;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B72E2BE28A1D0C90072D89A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rustom--iOS--Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca.Rustom;
+				PRODUCT_NAME = Rustom;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B72E2C028A1D0C90072D89A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rustom--macOS--Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca.Rustom;
+				PRODUCT_NAME = Rustom;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8B72E2C128A1D0C90072D89A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rustom--macOS--Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca.Rustom;
+				PRODUCT_NAME = Rustom;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8B72E2C328A1D0C90072D89A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jovitoroyeca.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Rustom (iOS)";
+			};
+			name = Debug;
+		};
+		8B72E2C428A1D0C90072D89A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jovitoroyeca.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Rustom (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B72E2C628A1D0C90072D89A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jovitoroyeca.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Rustom (macOS)";
+			};
+			name = Debug;
+		};
+		8B72E2C728A1D0C90072D89A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jovitoroyeca.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Rustom (macOS)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B72E28A28A1D0AF0072D89A /* Build configuration list for PBXProject "Rustom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B72E2BA28A1D0C90072D89A /* Debug */,
+				8B72E2BB28A1D0C90072D89A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B72E2BC28A1D0C90072D89A /* Build configuration list for PBXNativeTarget "Rustom (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B72E2BD28A1D0C90072D89A /* Debug */,
+				8B72E2BE28A1D0C90072D89A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B72E2BF28A1D0C90072D89A /* Build configuration list for PBXNativeTarget "Rustom (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B72E2C028A1D0C90072D89A /* Debug */,
+				8B72E2C128A1D0C90072D89A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B72E2C228A1D0C90072D89A /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B72E2C328A1D0C90072D89A /* Debug */,
+				8B72E2C428A1D0C90072D89A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B72E2C528A1D0C90072D89A /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B72E2C628A1D0C90072D89A /* Debug */,
+				8B72E2C728A1D0C90072D89A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/google-api-objectivec-client-for-rest.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		8B72E2D128A1DEE50072D89A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		8B72E2DA28A1E7740072D89A /* XCRemoteSwiftPackageReference "gtm-session-fetcher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/gtm-session-fetcher.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8B72E2C928A1DB450072D89A /* GoogleAPIClientForRESTCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForRESTCore;
+		};
+		8B72E2CB28A1DB450072D89A /* GoogleAPIClientForREST_Drive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_Drive;
+		};
+		8B72E2CD28A1DB450072D89A /* GoogleAPIClientForREST_DriveActivity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_DriveActivity;
+		};
+		8B72E2CF28A1DB450072D89A /* GoogleAPIClientForREST_Oauth2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_Oauth2;
+		};
+		8B72E2D228A1DEE50072D89A /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2D128A1DEE50072D89A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		8B72E2DB28A1E7740072D89A /* GTMSessionFetcher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2DA28A1E7740072D89A /* XCRemoteSwiftPackageReference "gtm-session-fetcher" */;
+			productName = GTMSessionFetcher;
+		};
+		8B72E2DD28A1E7740072D89A /* GTMSessionFetcherCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2DA28A1E7740072D89A /* XCRemoteSwiftPackageReference "gtm-session-fetcher" */;
+			productName = GTMSessionFetcherCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 8B72E28728A1D0AF0072D89A /* Project object */;
+}
