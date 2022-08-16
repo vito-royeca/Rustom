@@ -36,9 +36,17 @@ final class GoogleDriveLoader: ObservableObject {
         } else {
             query.q = "'root' in parents"
         }
-
+        //query.fields = "kind,nextPageToken,files(mimeType,id,kind,name,webViewLink,createdDate,trashed)"
+        query.fields = "*"
+        
         service.executeQuery(query) { (ticket, result, error) in
-            completion((result as? GTLRDrive_FileList)?.files, error)
+            guard let list = result as? GTLRDrive_FileList,
+                  let files = list.files else {
+                completion([], error)
+                return
+            }
+            
+            completion(files.sorted(by: { $0.name ?? "" < $1.name ?? ""}), error)
         }
     }
 }

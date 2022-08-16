@@ -9,9 +9,7 @@ import SwiftUI
 
 struct BusyView: View {
     var body: some View {
-        Spacer()
-        Text("Loading...")
-        ProgressView()
+        ProgressView("Loading...")
             .progressViewStyle(.circular)
             .padding()
     }

@@ -18,6 +18,7 @@ struct DriveView: View {
     }
 
     var body: some View {
+        ZStack {
             if driveViewModel.isBusy {
                 BusyView()
             } else if driveViewModel.isFailed {
@@ -26,41 +27,71 @@ struct DriveView: View {
                 }
             } else {
                 bodyData
-                    .onAppear {
-                        self.authViewModel.setupDriveLoader(completion: { loader, error in
-                            self.driveViewModel.loader = loader
-                            self.listFiles()
-                        })
-                    }
+            }
+        }
+            .onAppear {
+                self.authViewModel.setupDriveLoader(completion: { loader, error in
+                    self.driveViewModel.loader = loader
+                    self.listFiles()
+                })
             }
     }
     
     var bodyData: some View {
         List {
             ForEach(driveViewModel.files, id: \.identifier) { file in
-                let destination = DriveView(file: file)
-                
-                NavigationLink(destination: destination) {
-                    Text(file.name ?? "")
+                if file.mimeType == "application/vnd.google-apps.folder" {
+                    let destination = DriveView(file: file)
+                    
+                    NavigationLink(destination: destination) {
+                        rowData(file: file)
+                    }
+                } else {
+                    rowData(file: file)
                 }
-                
-//                Text(file.name ?? "")
-//                    .background(NavigationLink("", destination: DriveView(file: file)).opacity(0))
             }
         }
             .listStyle(.plain)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(NSLocalizedString("Sign Out",
-                                             comment: "Sign out button"), action: signOut)
+                    Button {
+                        generateMetadata()
+                    } label: {
+                        Label("Metadata", systemImage: "arrow.down.doc")
+                    }
+                        .labelStyle(VerticalLabelStyle())
+
+                    Button {
+                        signOut()
+                    } label: {
+                        Label("Sign Out", systemImage: "arrow.right.square")
+                    }
+                        .labelStyle(VerticalLabelStyle())
                 }
             }
             .navigationBarTitle(file?.name ?? "My Drive")
             
     }
     
+    func rowData(file: GTLRDrive_File) -> some View {
+        let isFolder = file.mimeType == "application/vnd.google-apps.folder"
+        
+        return HStack(alignment: .center, spacing: 10) {
+            if isFolder {
+                Image(systemName: "folder")
+            } else {
+                Image(systemName: "doc")
+            }
+            Text(file.name ?? "")
+        }
+    }
+    
     func listFiles() {
-        self.driveViewModel.listFiles(root: file)
+        driveViewModel.listFiles(root: file)
+    }
+    
+    func generateMetadata() {
+        driveViewModel.generateMetaData(parent: nil, file: file)
     }
     
     func signOut() {
@@ -71,5 +102,14 @@ struct DriveView: View {
 struct DriveView_Previews: PreviewProvider {
     static var previews: some View {
         DriveView(file: nil)
+    }
+}
+
+struct VerticalLabelStyle: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack(spacing: 10) {
+            configuration.icon
+            configuration.title
+        }
     }
 }
