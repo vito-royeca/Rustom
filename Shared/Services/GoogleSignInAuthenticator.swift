@@ -22,9 +22,9 @@ import GoogleAPIClientForREST_Drive
 final class GoogleSignInAuthenticator: ObservableObject {
     // TODO: Replace this with your own ID.
     #if os(iOS)
-    private let clientID = "1030361825507-fmmaamth3aafpg6ol9b6s8ar08fr9s6g.apps.googleusercontent.com"
+    private let clientID = "CLIENT_ID_CHANGE_THIS"
     #elseif os(macOS)
-    private let clientID = "1030361825507-kcv8vqnfksgb7ea6pcqb82ehb614hhr6.apps.googleusercontent.com"
+    private let clientID = "CLIENT_ID_CHANGE_THIS"
     #endif
 
     static let scopes = ["https://www.googleapis.com/auth/drive",

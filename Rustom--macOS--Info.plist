@@ -8,10 +8,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.googleusercontent.apps.1030361825507-fmmaamth3aafpg6ol9b6s8ar08fr9s6g</string>
+			<string>CLIENT_ID_CHANGE_THIS</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.1030361825507-fmmaamth3aafpg6ol9b6s8ar08fr9s6g</string>
+				<string>CLIENT_ID_CHANGE_THIS</string>
 			</array>
 		</dict>
 	</array>

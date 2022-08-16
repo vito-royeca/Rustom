@@ -28,15 +28,12 @@ final class GoogleDriveLoader: ObservableObject {
     
     func listFiles(_ folderID: String?, completion: @escaping ([GTLRDrive_File]?, Error?) -> ()) {
         let query = GTLRDriveQuery_FilesList.query()
-//        query.pageSize = 100
         
         if let folderID = folderID {
-//            query.q = "'\(folderID)' in parents and mimeType != 'application/vnd.google-apps.folder'"
             query.q = "'\(folderID)' in parents"
         } else {
             query.q = "'root' in parents"
         }
-        //query.fields = "kind,nextPageToken,files(mimeType,id,kind,name,webViewLink,createdDate,trashed)"
         query.fields = "*"
         
         service.executeQuery(query) { (ticket, result, error) in
