@@ -15,7 +15,7 @@ struct ContentView: View {
             NavigationView {
                 switch authViewModel.state {
                 case .signedIn:
-                    DriveView()
+                    DriveView(file: nil)
                 case .signedOut:
                     SignInView()
                         .navigationTitle(NSLocalizedString("Sign-in with Google",

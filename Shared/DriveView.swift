@@ -6,33 +6,61 @@
 //
 
 import SwiftUI
+import GoogleAPIClientForREST_Drive
 
 struct DriveView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @StateObject var driveViewModel = DriveViewModel()
+    var file: GTLRDrive_File?
     
+    init(file: GTLRDrive_File?) {
+        self.file = file
+    }
+
     var body: some View {
-        Text("Google Drive")
-            .onAppear {
-//                guard self.driveViewModel.birthday != nil else {
-                    if !self.authViewModel.hasDriveScopes {
-                        self.authViewModel.addDriveScopes {
-//                            self.birthdayViewModel.fetchBirthday()
-                            print("Drive scopes granted.")
-                        }
-                    } else {
-//                        self.birthdayViewModel.fetchBirthday()
-                        print("Drive scopes granted.")
+            if driveViewModel.isBusy {
+                BusyView()
+            } else if driveViewModel.isFailed {
+                ErrorView {
+                    self.listFiles()
+                }
+            } else {
+                bodyData
+                    .onAppear {
+                        self.authViewModel.setupDriveLoader(completion: { loader, error in
+                            self.driveViewModel.loader = loader
+                            self.listFiles()
+                        })
                     }
-//                    return
-//                }
             }
+    }
+    
+    var bodyData: some View {
+        List {
+            ForEach(driveViewModel.files, id: \.identifier) { file in
+                let destination = DriveView(file: file)
+                
+                NavigationLink(destination: destination) {
+                    Text(file.name ?? "")
+                }
+                
+//                Text(file.name ?? "")
+//                    .background(NavigationLink("", destination: DriveView(file: file)).opacity(0))
+            }
+        }
+            .listStyle(.plain)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(NSLocalizedString("Sign Out",
                                              comment: "Sign out button"), action: signOut)
                 }
             }
+            .navigationBarTitle(file?.name ?? "My Drive")
+            
+    }
+    
+    func listFiles() {
+        self.driveViewModel.listFiles(root: file)
     }
     
     func signOut() {
@@ -42,6 +70,6 @@ struct DriveView: View {
 
 struct DriveView_Previews: PreviewProvider {
     static var previews: some View {
-        DriveView()
+        DriveView(file: nil)
     }
 }

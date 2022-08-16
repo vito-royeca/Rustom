@@ -61,14 +61,28 @@ final class AuthenticationViewModel: ObservableObject {
     }
 
     var hasDriveScopes: Bool {
-        return authorizedScopes.contains(DriveLoader.driveReadScope) &&
-            authorizedScopes.contains(DriveLoader.driveActivityReadScope)
+        var result = false
+        
+        for scope in GoogleSignInAuthenticator.scopes {
+            result = authorizedScopes.contains(scope)
+        }
+        return result
     }
 
     /// Adds the requested Google Drive read scopes.
     /// - parameter completion: An escaping closure that is called upon successful completion.
-    func addDriveScopes(completion: @escaping () -> Void) {
+    func addDriveScopes(completion: @escaping (GoogleDriveLoader?, Error?) -> Void) {
         authenticator.addDriveScopes(completion: completion)
+    }
+    
+    func setupDriveLoader(completion: @escaping (GoogleDriveLoader?, Error?) -> Void) {
+        if !hasDriveScopes {
+            addDriveScopes { loader, error in
+                completion(loader, error)
+            }
+        } else {
+            completion(authenticator.createDriveLoader(), nil)
+        }
     }
 }
 

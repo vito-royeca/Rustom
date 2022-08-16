@@ -16,6 +16,7 @@
 
 import Foundation
 import GoogleSignIn
+import GoogleAPIClientForREST_Drive
 
 /// An observable class for authenticating via Google.
 final class GoogleSignInAuthenticator: ObservableObject {
@@ -26,6 +27,15 @@ final class GoogleSignInAuthenticator: ObservableObject {
     private let clientID = "1030361825507-kcv8vqnfksgb7ea6pcqb82ehb614hhr6.apps.googleusercontent.com"
     #endif
 
+    static let scopes = ["https://www.googleapis.com/auth/drive",
+                         "https://www.googleapis.com/auth/drive.file",
+                         "https://www.googleapis.com/auth/drive.readonly",
+                         "https://www.googleapis.com/auth/drive.metadata.readonly",
+                         "https://www.googleapis.com/auth/drive.appdata",
+                         "https://www.googleapis.com/auth/drive.apps.readonly",
+                         "https://www.googleapis.com/auth/drive.metadata",
+                         "https://www.googleapis.com/auth/drive.photos.readonly"]
+    
     private lazy var configuration: GIDConfiguration = {
         return GIDConfiguration(clientID: clientID)
     }()
@@ -94,42 +104,56 @@ final class GoogleSignInAuthenticator: ObservableObject {
     /// `addScopes(_:presenting:)` request.
     /// - note: Successful requests will update the `authViewModel.state` with a new current user that
     /// has the granted scope.
-    func addDriveScopes(completion: @escaping () -> Void) {
+    func addDriveScopes(completion: @escaping (GoogleDriveLoader?, Error?) -> Void) {
     #if os(iOS)
         guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
             fatalError("No root view controller!")
         }
 
-        GIDSignIn.sharedInstance.addScopes([DriveLoader.driveReadScope, DriveLoader.driveActivityReadScope],
+        GIDSignIn.sharedInstance.addScopes(GoogleSignInAuthenticator.scopes,
                                            presenting: rootViewController) { user, error in
             if let error = error {
-                print("Found error while adding Google Drive read scopes: \(error).")
+                completion(nil, error)
                 return
             }
 
-            guard let currentUser = user else { return }
-                self.authViewModel.state = .signedIn(currentUser)
-                completion()
-            }
+            completion(self.createDriveLoader(), nil)
+        }
 
     #elseif os(macOS)
         guard let presentingWindow = NSApplication.shared.windows.first else {
             fatalError("No presenting window!")
         }
 
-        GIDSignIn.sharedInstance.addScopes([DriveLoader.driveReadScope, DriveLoader.driveActivityReadScope],
+        GIDSignIn.sharedInstance.addScopes(GoogleSignInAuthenticator.scopes,
                                            presenting: presentingWindow) { user, error in
             if let error = error {
-                print("Found error while adding Google Drive read scopes: \(error).")
+                completion(nil, error)
                 return
             }
 
-            guard let currentUser = user else { return }
-                self.authViewModel.state = .signedIn(currentUser)
-                completion()
+            completion(self.createDriveLoader(), nil)
         }
 
     #endif
     }
+    
+    func createDriveLoader() -> GoogleDriveLoader? {
+        switch authViewModel.state {
+        case .signedIn(let user):
+            let service = GTLRDriveService()
+            service.authorizer = user.authentication.fetcherAuthorizer()
+            
+            let loader = GoogleDriveLoader(service: service)
+            return loader
+        case .signedOut:
+            return nil
+        }
+    }
 }
 
+//extension GoogleSignInAuthenticator {
+//    enum GoogleSignInAuthenticatorError: Swift.Error {
+//        case couldNotFindUser
+//    }
+//}

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B64C4C228AB542A00543544 /* BusyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B64C4C128AB542A00543544 /* BusyView.swift */; };
+		8B64C4C328AB542A00543544 /* BusyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B64C4C128AB542A00543544 /* BusyView.swift */; };
+		8B64C4C528AB54FE00543544 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B64C4C428AB54FE00543544 /* ErrorView.swift */; };
+		8B64C4C628AB54FE00543544 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B64C4C428AB54FE00543544 /* ErrorView.swift */; };
 		8B72E2A528A1D0C90072D89A /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2A428A1D0C90072D89A /* Tests_iOS.swift */; };
 		8B72E2A728A1D0C90072D89A /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2A628A1D0C90072D89A /* Tests_iOSLaunchTests.swift */; };
 		8B72E2B128A1D0C90072D89A /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2B028A1D0C90072D89A /* Tests_macOS.swift */; };
@@ -32,10 +36,13 @@
 		8B72E2E628A1F01B0072D89A /* GoogleSignInAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E428A1F01B0072D89A /* GoogleSignInAuthenticator.swift */; };
 		8B72E2EA28A1F6600072D89A /* DriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E928A1F6600072D89A /* DriveView.swift */; };
 		8B72E2EB28A1F6600072D89A /* DriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2E928A1F6600072D89A /* DriveView.swift */; };
-		8B72E2EF28A1F9210072D89A /* DriveLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2EE28A1F9210072D89A /* DriveLoader.swift */; };
-		8B72E2F028A1F9210072D89A /* DriveLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2EE28A1F9210072D89A /* DriveLoader.swift */; };
+		8B72E2EF28A1F9210072D89A /* GoogleDriveLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2EE28A1F9210072D89A /* GoogleDriveLoader.swift */; };
+		8B72E2F028A1F9210072D89A /* GoogleDriveLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2EE28A1F9210072D89A /* GoogleDriveLoader.swift */; };
 		8B72E2F228A20DCF0072D89A /* DriveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2F128A20DCF0072D89A /* DriveViewModel.swift */; };
 		8B72E2F328A20DCF0072D89A /* DriveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72E2F128A20DCF0072D89A /* DriveViewModel.swift */; };
+		8B72E2F628A218E20072D89A /* GoogleAPIClientForRESTCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2F528A218E20072D89A /* GoogleAPIClientForRESTCore */; };
+		8B72E2F828A218E20072D89A /* GoogleAPIClientForREST_Drive in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2F728A218E20072D89A /* GoogleAPIClientForREST_Drive */; };
+		8B72E2FA28A218E20072D89A /* GoogleAPIClientForREST_DriveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2F928A218E20072D89A /* GoogleAPIClientForREST_DriveActivity */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B64C4C128AB542A00543544 /* BusyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusyView.swift; sourceTree = "<group>"; };
+		8B64C4C428AB54FE00543544 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		8B72E28C28A1D0B00072D89A /* RustomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustomApp.swift; sourceTree = "<group>"; };
 		8B72E28D28A1D0B00072D89A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B72E28E28A1D0C90072D89A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,7 +85,7 @@
 		8B72E2E928A1F6600072D89A /* DriveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveView.swift; sourceTree = "<group>"; };
 		8B72E2EC28A1F7C90072D89A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B72E2ED28A1F7C90072D89A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		8B72E2EE28A1F9210072D89A /* DriveLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveLoader.swift; sourceTree = "<group>"; };
+		8B72E2EE28A1F9210072D89A /* GoogleDriveLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDriveLoader.swift; sourceTree = "<group>"; };
 		8B72E2F128A20DCF0072D89A /* DriveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,10 +97,13 @@
 				8B72E2DE28A1E7740072D89A /* GTMSessionFetcherCore in Frameworks */,
 				8B72E2DC28A1E7740072D89A /* GTMSessionFetcher in Frameworks */,
 				8B72E2D328A1DEE50072D89A /* GoogleSignInSwift in Frameworks */,
+				8B72E2F828A218E20072D89A /* GoogleAPIClientForREST_Drive in Frameworks */,
 				8B72E2CC28A1DB450072D89A /* GoogleAPIClientForREST_Drive in Frameworks */,
 				8B72E2CE28A1DB450072D89A /* GoogleAPIClientForREST_DriveActivity in Frameworks */,
 				8B72E2D028A1DB450072D89A /* GoogleAPIClientForREST_Oauth2 in Frameworks */,
+				8B72E2F628A218E20072D89A /* GoogleAPIClientForRESTCore in Frameworks */,
 				8B72E2CA28A1DB450072D89A /* GoogleAPIClientForRESTCore in Frameworks */,
+				8B72E2FA28A218E20072D89A /* GoogleAPIClientForREST_DriveActivity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +156,8 @@
 				8B72E28E28A1D0C90072D89A /* Assets.xcassets */,
 				8B72E2D428A1E1E00072D89A /* SignInView.swift */,
 				8B72E2E928A1F6600072D89A /* DriveView.swift */,
+				8B64C4C128AB542A00543544 /* BusyView.swift */,
+				8B64C4C428AB54FE00543544 /* ErrorView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -198,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				8B72E2E428A1F01B0072D89A /* GoogleSignInAuthenticator.swift */,
-				8B72E2EE28A1F9210072D89A /* DriveLoader.swift */,
+				8B72E2EE28A1F9210072D89A /* GoogleDriveLoader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -227,6 +241,9 @@
 				8B72E2D228A1DEE50072D89A /* GoogleSignInSwift */,
 				8B72E2DB28A1E7740072D89A /* GTMSessionFetcher */,
 				8B72E2DD28A1E7740072D89A /* GTMSessionFetcherCore */,
+				8B72E2F528A218E20072D89A /* GoogleAPIClientForRESTCore */,
+				8B72E2F728A218E20072D89A /* GoogleAPIClientForREST_Drive */,
+				8B72E2F928A218E20072D89A /* GoogleAPIClientForREST_DriveActivity */,
 			);
 			productName = "Rustom (iOS)";
 			productReference = 8B72E29328A1D0C90072D89A /* Rustom.app */;
@@ -324,6 +341,7 @@
 				8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */,
 				8B72E2D128A1DEE50072D89A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				8B72E2DA28A1E7740072D89A /* XCRemoteSwiftPackageReference "gtm-session-fetcher" */,
+				8B72E2F428A218E20072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */,
 			);
 			productRefGroup = 8B72E29428A1D0C90072D89A /* Products */;
 			projectDirPath = "";
@@ -380,8 +398,10 @@
 				8B72E2B628A1D0C90072D89A /* ContentView.swift in Sources */,
 				8B72E2EA28A1F6600072D89A /* DriveView.swift in Sources */,
 				8B72E2E528A1F01B0072D89A /* GoogleSignInAuthenticator.swift in Sources */,
+				8B64C4C528AB54FE00543544 /* ErrorView.swift in Sources */,
 				8B72E2F228A20DCF0072D89A /* DriveViewModel.swift in Sources */,
-				8B72E2EF28A1F9210072D89A /* DriveLoader.swift in Sources */,
+				8B72E2EF28A1F9210072D89A /* GoogleDriveLoader.swift in Sources */,
+				8B64C4C228AB542A00543544 /* BusyView.swift in Sources */,
 				8B72E2B428A1D0C90072D89A /* RustomApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,8 +415,10 @@
 				8B72E2B728A1D0C90072D89A /* ContentView.swift in Sources */,
 				8B72E2EB28A1F6600072D89A /* DriveView.swift in Sources */,
 				8B72E2E628A1F01B0072D89A /* GoogleSignInAuthenticator.swift in Sources */,
+				8B64C4C628AB54FE00543544 /* ErrorView.swift in Sources */,
 				8B72E2F328A20DCF0072D89A /* DriveViewModel.swift in Sources */,
-				8B72E2F028A1F9210072D89A /* DriveLoader.swift in Sources */,
+				8B72E2F028A1F9210072D89A /* GoogleDriveLoader.swift in Sources */,
+				8B64C4C328AB542A00543544 /* BusyView.swift in Sources */,
 				8B72E2B528A1D0C90072D89A /* RustomApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -809,6 +831,14 @@
 				kind = branch;
 			};
 		};
+		8B72E2F428A218E20072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/google-api-objectivec-client-for-rest.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -846,6 +876,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8B72E2DA28A1E7740072D89A /* XCRemoteSwiftPackageReference "gtm-session-fetcher" */;
 			productName = GTMSessionFetcherCore;
+		};
+		8B72E2F528A218E20072D89A /* GoogleAPIClientForRESTCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForRESTCore;
+		};
+		8B72E2F728A218E20072D89A /* GoogleAPIClientForREST_Drive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_Drive;
+		};
+		8B72E2F928A218E20072D89A /* GoogleAPIClientForREST_DriveActivity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_DriveActivity;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
