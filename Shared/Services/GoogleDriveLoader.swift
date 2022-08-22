@@ -16,14 +16,17 @@
 
 import Combine
 import GoogleAPIClientForREST_Drive
+import GoogleAPIClientForREST_DriveActivity
 import GoogleSignIn
 
 /// An observable class to load the current user's Google Drive.
 final class GoogleDriveLoader: ObservableObject {
-    private let service: GTLRDriveService
+    private let driveService: GTLRDriveService
+    private let driveActivityService: GTLRDriveActivityService
     
-    init(service: GTLRDriveService) {
-        self.service = service
+    init(driveService: GTLRDriveService, driveActivityService: GTLRDriveActivityService) {
+        self.driveService = driveService
+        self.driveActivityService = driveActivityService
     }
     
     func listFiles(_ folderID: String?, completion: @escaping ([GTLRDrive_File]?, Error?) -> ()) {
@@ -36,14 +39,37 @@ final class GoogleDriveLoader: ObservableObject {
         }
         query.fields = "*"
         
-        service.executeQuery(query) { (ticket, result, error) in
+        driveService.executeQuery(query) { (ticket, result, error) in
             guard let list = result as? GTLRDrive_FileList,
                   let files = list.files else {
                 completion([], error)
                 return
             }
-            
+        
             completion(files.sorted(by: { $0.name ?? "" < $1.name ?? ""}), error)
+        }
+    }
+    
+    func listActivities(_ fileID: String, completion: @escaping ([GTLRDrive_Revision]?, Error?) -> ()) {
+        let request = GTLRDriveActivity_QueryDriveActivityRequest()
+        request.itemName = "items/\(fileID)"
+        let query = GTLRDriveActivityQuery_ActivityQuery(object: request)
+        
+//        if let folderID = folderID {
+//            query.q = "'\(folderID)' in parents"
+//        } else {
+//            query.q = "'root' in parents"
+//        }
+        query.fields = "*"
+        
+        driveActivityService.executeQuery(query) { (ticket, result, error) in
+//            guard let list = result as? GTLR,
+//                  let revisions = list.revisions else {
+//                completion([], error)
+//                return
+//            }
+        
+            completion(nil, nil)
         }
     }
 }

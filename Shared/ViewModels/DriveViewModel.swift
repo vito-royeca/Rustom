@@ -63,32 +63,65 @@ final class DriveViewModel: ObservableObject {
             print(url)
             try contents.write(to: url, atomically: false, encoding: .utf8)
             
-            // process other files
-            guard let loader = loader else {
-                return
-            }
-
-            loader.listFiles(file?.identifier, completion: {(files, error) in
-                if error != nil {
-                    self.isFailed = true
-                    return
-                }
-
-                self.isFailed = false
-                for f in files ?? [] {
-                    var fName = "\(parent ?? "")"
-                    
-                    if !fName.isEmpty {
-                        fName = fName.appending("/\(name)")
-                    } else {
-                        fName = name
+            if let revisionsURL = URL(string: url.absoluteString.replacingOccurrences(of: ".json", with: "-activities.json")) {
+                generateActivities(url: revisionsURL, file: file, handler: {
+                
+                    guard let loader = self.loader else {
+                        return
                     }
-                    self.generateMetaData(parent: fName, file: f)
-                }
-            })
-            
+
+                    loader.listFiles(file?.identifier, completion: {(files, error) in
+                        if error != nil {
+                            self.isFailed = true
+                            return
+                        }
+
+                        self.isFailed = false
+                        for f in files ?? [] {
+                            var fName = "\(parent ?? "")"
+                            
+                            if !fName.isEmpty {
+                                fName = fName.appending("/\(name)")
+                            } else {
+                                fName = name
+                            }
+                            self.generateMetaData(parent: fName, file: f)
+                        }
+                    })
+                })
+            }
         } catch {
             print(error)
         }
+    }
+    
+    func generateActivities(url: URL, file: GTLRDrive_File?, handler: @escaping () -> ()) {
+        guard let loader = loader,
+            let fileID = file?.identifier else {
+            handler()
+            return
+        }
+
+        loader.listActivities(fileID, completion: { (activities, error) in
+            if error != nil {
+                self.isFailed = true
+                handler()
+                return
+            }
+
+            self.isFailed = false
+            var contents = ""
+            
+            for a in activities ?? [] {
+                contents.append(contentsOf: a.jsonString())
+                contents.append("\n")
+            }
+            do {
+                try contents.write(to: url, atomically: false, encoding: .utf8)
+            } catch {
+                print(error)
+            }
+            handler()
+        })
     }
 }

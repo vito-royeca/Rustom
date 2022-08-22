@@ -17,6 +17,7 @@
 import Foundation
 import GoogleSignIn
 import GoogleAPIClientForREST_Drive
+import GoogleAPIClientForREST_DriveActivity
 
 /// An observable class for authenticating via Google.
 final class GoogleSignInAuthenticator: ObservableObject {
@@ -28,6 +29,7 @@ final class GoogleSignInAuthenticator: ObservableObject {
     #endif
 
     static let scopes = ["https://www.googleapis.com/auth/drive",
+                         "https://www.googleapis.com/auth/drive.activity.readonly",
                          "https://www.googleapis.com/auth/drive.file",
                          "https://www.googleapis.com/auth/drive.readonly",
                          "https://www.googleapis.com/auth/drive.metadata.readonly",
@@ -141,10 +143,13 @@ final class GoogleSignInAuthenticator: ObservableObject {
     func createDriveLoader() -> GoogleDriveLoader? {
         switch authViewModel.state {
         case .signedIn(let user):
-            let service = GTLRDriveService()
-            service.authorizer = user.authentication.fetcherAuthorizer()
+            let driveService = GTLRDriveService()
+            driveService.authorizer = user.authentication.fetcherAuthorizer()
             
-            let loader = GoogleDriveLoader(service: service)
+            let driveActivityService = GTLRDriveActivityService()
+            driveActivityService.authorizer = user.authentication.fetcherAuthorizer()
+            
+            let loader = GoogleDriveLoader(driveService: driveService, driveActivityService: driveActivityService)
             return loader
         case .signedOut:
             return nil
