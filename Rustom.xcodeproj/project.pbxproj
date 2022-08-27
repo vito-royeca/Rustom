@@ -43,6 +43,11 @@
 		8B72E2F628A218E20072D89A /* GoogleAPIClientForRESTCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2F528A218E20072D89A /* GoogleAPIClientForRESTCore */; };
 		8B72E2F828A218E20072D89A /* GoogleAPIClientForREST_Drive in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2F728A218E20072D89A /* GoogleAPIClientForREST_Drive */; };
 		8B72E2FA28A218E20072D89A /* GoogleAPIClientForREST_DriveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 8B72E2F928A218E20072D89A /* GoogleAPIClientForREST_DriveActivity */; };
+		8BED96F728B5D124001EBE56 /* GoogleAPIClientForREST_PeopleService in Frameworks */ = {isa = PBXBuildFile; productRef = 8BED96F628B5D124001EBE56 /* GoogleAPIClientForREST_PeopleService */; };
+		8BED96FA28B9D5CB001EBE56 /* GoogleAPIClientForREST_Drive in Frameworks */ = {isa = PBXBuildFile; productRef = 8BED96F928B9D5CB001EBE56 /* GoogleAPIClientForREST_Drive */; };
+		8BED96FC28B9D5CB001EBE56 /* GoogleAPIClientForREST_DriveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 8BED96FB28B9D5CB001EBE56 /* GoogleAPIClientForREST_DriveActivity */; };
+		8BED96FE28B9D5CB001EBE56 /* GoogleAPIClientForREST_Oauth2 in Frameworks */ = {isa = PBXBuildFile; productRef = 8BED96FD28B9D5CB001EBE56 /* GoogleAPIClientForREST_Oauth2 */; };
+		8BED970028B9D5CB001EBE56 /* GoogleAPIClientForREST_PeopleService in Frameworks */ = {isa = PBXBuildFile; productRef = 8BED96FF28B9D5CB001EBE56 /* GoogleAPIClientForREST_PeopleService */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,12 +99,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BED96FE28B9D5CB001EBE56 /* GoogleAPIClientForREST_Oauth2 in Frameworks */,
+				8BED96FA28B9D5CB001EBE56 /* GoogleAPIClientForREST_Drive in Frameworks */,
+				8BED96F728B5D124001EBE56 /* GoogleAPIClientForREST_PeopleService in Frameworks */,
 				8B72E2DE28A1E7740072D89A /* GTMSessionFetcherCore in Frameworks */,
+				8BED970028B9D5CB001EBE56 /* GoogleAPIClientForREST_PeopleService in Frameworks */,
 				8B72E2DC28A1E7740072D89A /* GTMSessionFetcher in Frameworks */,
 				8B72E2D328A1DEE50072D89A /* GoogleSignInSwift in Frameworks */,
 				8B72E2F828A218E20072D89A /* GoogleAPIClientForREST_Drive in Frameworks */,
 				8B72E2CC28A1DB450072D89A /* GoogleAPIClientForREST_Drive in Frameworks */,
 				8B72E2CE28A1DB450072D89A /* GoogleAPIClientForREST_DriveActivity in Frameworks */,
+				8BED96FC28B9D5CB001EBE56 /* GoogleAPIClientForREST_DriveActivity in Frameworks */,
 				8B72E2D028A1DB450072D89A /* GoogleAPIClientForREST_Oauth2 in Frameworks */,
 				8B72E2F628A218E20072D89A /* GoogleAPIClientForRESTCore in Frameworks */,
 				8B72E2CA28A1DB450072D89A /* GoogleAPIClientForRESTCore in Frameworks */,
@@ -244,6 +254,11 @@
 				8B72E2F528A218E20072D89A /* GoogleAPIClientForRESTCore */,
 				8B72E2F728A218E20072D89A /* GoogleAPIClientForREST_Drive */,
 				8B72E2F928A218E20072D89A /* GoogleAPIClientForREST_DriveActivity */,
+				8BED96F628B5D124001EBE56 /* GoogleAPIClientForREST_PeopleService */,
+				8BED96F928B9D5CB001EBE56 /* GoogleAPIClientForREST_Drive */,
+				8BED96FB28B9D5CB001EBE56 /* GoogleAPIClientForREST_DriveActivity */,
+				8BED96FD28B9D5CB001EBE56 /* GoogleAPIClientForREST_Oauth2 */,
+				8BED96FF28B9D5CB001EBE56 /* GoogleAPIClientForREST_PeopleService */,
 			);
 			productName = "Rustom (iOS)";
 			productReference = 8B72E29328A1D0C90072D89A /* Rustom.app */;
@@ -342,6 +357,8 @@
 				8B72E2D128A1DEE50072D89A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				8B72E2DA28A1E7740072D89A /* XCRemoteSwiftPackageReference "gtm-session-fetcher" */,
 				8B72E2F428A218E20072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */,
+				8BED96F528B5D124001EBE56 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */,
+				8BED96F828B9D5CB001EBE56 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */,
 			);
 			productRefGroup = 8B72E29428A1D0C90072D89A /* Products */;
 			projectDirPath = "";
@@ -839,6 +856,22 @@
 				kind = branch;
 			};
 		};
+		8BED96F528B5D124001EBE56 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/google-api-objectivec-client-for-rest.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		8BED96F828B9D5CB001EBE56 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/google-api-objectivec-client-for-rest.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -891,6 +924,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
 			productName = GoogleAPIClientForREST_DriveActivity;
+		};
+		8BED96F628B5D124001EBE56 /* GoogleAPIClientForREST_PeopleService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_PeopleService;
+		};
+		8BED96F928B9D5CB001EBE56 /* GoogleAPIClientForREST_Drive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_Drive;
+		};
+		8BED96FB28B9D5CB001EBE56 /* GoogleAPIClientForREST_DriveActivity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_DriveActivity;
+		};
+		8BED96FD28B9D5CB001EBE56 /* GoogleAPIClientForREST_Oauth2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_Oauth2;
+		};
+		8BED96FF28B9D5CB001EBE56 /* GoogleAPIClientForREST_PeopleService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B72E2C828A1DB450072D89A /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_PeopleService;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,6 +7,8 @@
 
 import Foundation
 import GoogleAPIClientForREST_Drive
+import GoogleAPIClientForREST_DriveActivity
+import GoogleAPIClientForREST_PeopleService
 
 /// An observable class representing the current user's `Google Drive`.
 final class DriveViewModel: ObservableObject {
@@ -23,17 +25,22 @@ final class DriveViewModel: ObservableObject {
         }
         
         isBusy = true
-        loader.listFiles(root?.identifier, completion: {(files, error) in
-            self.isBusy = false
-            
-            if error != nil {
-                self.isFailed = true
-                return
+        
+        Task.init {
+            do {
+                let files = try await loader.listFiles(root?.identifier)
+                DispatchQueue.main.async {
+                    self.isBusy = false
+                    self.isFailed = false
+                    self.files = files
+                }
+            } catch {
+                print(error)
+                DispatchQueue.main.async {
+                    self.isFailed = true
+                }
             }
-            
-            self.isFailed = false
-            self.files = files ?? []
-        })
+        }
     }
     
     func generateMetaData(parent: String?, file: GTLRDrive_File?) {
@@ -49,7 +56,7 @@ final class DriveViewModel: ObservableObject {
         
         do {
             let contents = file?.jsonString() ?? ""
-            let fileName = "\(name).json"
+            let fileName = "\(name).txt"
 
             if isFolder {
                 if !FileManager.default.fileExists(atPath: url.path) {
@@ -57,37 +64,46 @@ final class DriveViewModel: ObservableObject {
                     url = url.appendingPathComponent(fileName)
                 }
             } else {
-                url = URL(string: "\(url.absoluteString).json")!
+                url = URL(string: "\(url.absoluteString).txt")!
             }
             
             print(url)
             try contents.write(to: url, atomically: false, encoding: .utf8)
             
-            if let revisionsURL = URL(string: url.absoluteString.replacingOccurrences(of: ".json", with: "-activities.json")) {
-                generateActivities(url: revisionsURL, file: file, handler: {
-                
+            if let revisionsURL = URL(string: url.absoluteString.replacingOccurrences(of: ".txt", with: "-activities.txt")) {
+                generateActivities(url: revisionsURL, file: file,  handler: {
                     guard let loader = self.loader else {
                         return
                     }
 
-                    loader.listFiles(file?.identifier, completion: {(files, error) in
-                        if error != nil {
-                            self.isFailed = true
-                            return
-                        }
-
-                        self.isFailed = false
-                        for f in files ?? [] {
-                            var fName = "\(parent ?? "")"
+                    Task.init {
+                        do {
+                            let files = try await loader.listFiles(file?.identifier)
                             
-                            if !fName.isEmpty {
-                                fName = fName.appending("/\(name)")
-                            } else {
-                                fName = name
+                            DispatchQueue.main.async {
+                                self.isFailed = false
                             }
-                            self.generateMetaData(parent: fName, file: f)
+
+                            for f in files {
+                                var fName = "\(parent ?? "")"
+
+                                if !fName.isEmpty {
+                                    fName = fName.appending("/\(name)")
+                                } else {
+                                    fName = name
+                                }
+                                if isFolder {
+                                    self.generateMetaData(parent: fName, file: f)
+                                }
+                            }
+                            
+                        } catch {
+                            print(error)
+                            DispatchQueue.main.async {
+                                self.isFailed = true
+                            }
                         }
-                    })
+                    }
                 })
             }
         } catch {
@@ -102,26 +118,89 @@ final class DriveViewModel: ObservableObject {
             return
         }
 
-        loader.listActivities(fileID, completion: { (activities, error) in
-            if error != nil {
-                self.isFailed = true
-                handler()
-                return
-            }
-
-            self.isFailed = false
-            var contents = ""
-            
-            for a in activities ?? [] {
-                contents.append(contentsOf: a.jsonString())
-                contents.append("\n")
-            }
+        Task.init {
             do {
-                try contents.write(to: url, atomically: false, encoding: .utf8)
+                let activities = try await loader.listActivities(fileID)
+                
+                for person in loader.persons(of: activities) {
+                    let _ = try await loader.getPersonDetails(person)
+                }
+                
+                activities.forEach {
+                    $0.targets?.forEach {
+                        if let personName = $0.driveItem?.owner?.user?.knownUser?.personName,
+                           let person = loader.getCachedPersonDetails(personName) {
+                            let target = $0
+                            target.driveItem?.owner?.user?.knownUser?.personName = constructPersonValue(for: person)
+                        }
+                    }
+
+                    $0.actions?.forEach {
+                        $0.detail?.permissionChange?.addedPermissions?.forEach {
+                            if let personName = $0.user?.knownUser?.personName,
+                               let person = loader.getCachedPersonDetails(personName) {
+                                let addedPermission = $0
+                                addedPermission.user?.knownUser?.personName = constructPersonValue(for: person)
+                            }
+                        }
+                        $0.detail?.permissionChange?.removedPermissions?.forEach {
+                            if let personName = $0.user?.knownUser?.personName,
+                               let person = loader.getCachedPersonDetails(personName) {
+                                let removedPermission = $0
+                                removedPermission.user?.knownUser?.personName = constructPersonValue(for: person)
+                            }
+                        }
+                    }
+
+                    $0.actors?.forEach {
+                        if let personName = $0.user?.knownUser?.personName,
+                           let person = loader.getCachedPersonDetails(personName) {
+                            let actor = $0
+                            actor.user?.knownUser?.personName = constructPersonValue(for: person)
+                        }
+                    }
+
+                    $0.primaryActionDetail?.permissionChange?.addedPermissions?.forEach {
+                        if let personName = $0.user?.knownUser?.personName,
+                           let person = loader.getCachedPersonDetails(personName) {
+                            let addedPermission = $0
+                            addedPermission.user?.knownUser?.personName = constructPersonValue(for: person)
+
+                        }
+                    }
+
+                    $0.primaryActionDetail?.permissionChange?.removedPermissions?.forEach {
+                        if let personName = $0.user?.knownUser?.personName,
+                           let person = loader.getCachedPersonDetails(personName) {
+                            let removedPermission = $0
+                            removedPermission.user?.knownUser?.personName = constructPersonValue(for: person)
+                        }
+                    }
+                }
+                
+                let array = activities.map {
+                    $0.jsonString()
+                }
+                let contents = "[\n\(array.joined(separator: ",\n\n"))\n]"
+                
+                do {
+                    try contents.write(to: url, atomically: false, encoding: .utf8)
+                } catch {
+                    print(error)
+                }
+                handler()
             } catch {
                 print(error)
+                self.isFailed = true
             }
-            handler()
-        })
+        }
+    }
+    
+    func constructPersonValue(for person: GTLRPeopleService_Person) -> String {
+        let names = "\((person.names ?? []).map { $0.displayName ?? ""}.joined(separator: ", "))"
+        let emails = "\((person.emailAddresses ?? []).map { $0.value ?? ""}.joined(separator: ", "))"
+        let value = names.isEmpty ? "" : names
+        return value.isEmpty ? emails : "\(value) (\(emails))"
     }
 }
+

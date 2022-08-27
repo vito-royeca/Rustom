@@ -95,7 +95,7 @@ struct DriveView: View {
     }
     
     func signOut() {
-        authViewModel.signOut()
+        authViewModel.disconnect()
     }
 }
 

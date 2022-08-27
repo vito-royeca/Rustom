@@ -18,25 +18,31 @@ import Foundation
 import GoogleSignIn
 import GoogleAPIClientForREST_Drive
 import GoogleAPIClientForREST_DriveActivity
+import GoogleAPIClientForREST_PeopleService
 
 /// An observable class for authenticating via Google.
 final class GoogleSignInAuthenticator: ObservableObject {
     // TODO: Replace this with your own ID.
     #if os(iOS)
-    private let clientID = "CLIENT_ID_CHANGE_THIS"
+    private let clientID = "1030361825507-hnu64gl9edsuveao1ucm1gsjo4g8bscf.apps.googleusercontent.com"
     #elseif os(macOS)
-    private let clientID = "CLIENT_ID_CHANGE_THIS"
+    private let clientID = "1030361825507-p5q1ap2av385nssav73p6crmef86ouio.apps.googleusercontent.com"
     #endif
 
-    static let scopes = ["https://www.googleapis.com/auth/drive",
+    static let scopes = ["profile", "email",
+                         "https://www.googleapis.com/auth/userinfo.profile",
+                         "https://www.googleapis.com/auth/userinfo.email",
+                         "https://www.googleapis.com/auth/contacts.readonly",
+                         "https://www.googleapis.com/auth/contacts.other.readonly",
+                         "https://www.googleapis.com/auth/profile.emails.read",
+                         "https://www.googleapis.com/auth/directory.readonly",
+                         "https://www.googleapis.com/auth/user.emails.read",
+                         "https://www.googleapis.com/auth/contacts.readonly",
+                         "https://www.googleapis.com/auth/drive.readonly",
                          "https://www.googleapis.com/auth/drive.activity.readonly",
                          "https://www.googleapis.com/auth/drive.file",
-                         "https://www.googleapis.com/auth/drive.readonly",
                          "https://www.googleapis.com/auth/drive.metadata.readonly",
-                         "https://www.googleapis.com/auth/drive.appdata",
-                         "https://www.googleapis.com/auth/drive.apps.readonly",
-                         "https://www.googleapis.com/auth/drive.metadata",
-                         "https://www.googleapis.com/auth/drive.photos.readonly"]
+                         "https://www.googleapis.com/auth/drive.apps.readonly"]
     
     private lazy var configuration: GIDConfiguration = {
         return GIDConfiguration(clientID: clientID)
@@ -149,7 +155,12 @@ final class GoogleSignInAuthenticator: ObservableObject {
             let driveActivityService = GTLRDriveActivityService()
             driveActivityService.authorizer = user.authentication.fetcherAuthorizer()
             
-            let loader = GoogleDriveLoader(driveService: driveService, driveActivityService: driveActivityService)
+            let peopleService = GTLRPeopleServiceService()
+            peopleService.authorizer = user.authentication.fetcherAuthorizer()
+            
+            let loader = GoogleDriveLoader(driveService: driveService,
+                                           driveActivityService: driveActivityService,
+                                           peopleService: peopleService)
             return loader
         case .signedOut:
             return nil
