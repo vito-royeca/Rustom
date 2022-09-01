@@ -18,6 +18,8 @@ struct RustomApp: App {
             ContentView()
             .environmentObject(authViewModel)
             .onAppear {
+                print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first ?? "")
+                
                 GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
                     if let user = user {
                       self.authViewModel.state = .signedIn(user)

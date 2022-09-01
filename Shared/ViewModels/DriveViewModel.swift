@@ -61,14 +61,16 @@ final class DriveViewModel: ObservableObject {
             if isFolder {
                 if !FileManager.default.fileExists(atPath: url.path) {
                     try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
-                    url = url.appendingPathComponent(fileName)
                 }
+                url = url.appendingPathComponent(fileName)
             } else {
                 url = URL(string: "\(url.absoluteString).txt")!
             }
             
-            print(url)
-            try contents.write(to: url, atomically: false, encoding: .utf8)
+            if !FileManager.default.fileExists(atPath: url.path) {
+                try contents.write(to: url, atomically: false, encoding: .utf8)
+                print(url)
+            }
             
             if let revisionsURL = URL(string: url.absoluteString.replacingOccurrences(of: ".txt", with: "-activities.txt")) {
                 generateActivities(url: revisionsURL, file: file,  handler: {
@@ -113,7 +115,8 @@ final class DriveViewModel: ObservableObject {
     
     func generateActivities(url: URL, file: GTLRDrive_File?, handler: @escaping () -> ()) {
         guard let loader = loader,
-            let fileID = file?.identifier else {
+            let fileID = file?.identifier,
+            !FileManager.default.fileExists(atPath: url.path) else {
             handler()
             return
         }
@@ -183,15 +186,14 @@ final class DriveViewModel: ObservableObject {
                 }
                 let contents = "[\n\(array.joined(separator: ",\n\n"))\n]"
                 
-                do {
-                    try contents.write(to: url, atomically: false, encoding: .utf8)
-                } catch {
-                    print(error)
-                }
+                try contents.write(to: url, atomically: false, encoding: .utf8)
+                print(url)
                 handler()
             } catch {
                 print(error)
-                self.isFailed = true
+                DispatchQueue.main.async {
+                    self.isFailed = true
+                }
             }
         }
     }
